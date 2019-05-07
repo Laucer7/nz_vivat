@@ -1,17 +1,26 @@
 #include <string.h>
+#include <vector>
 
-
-class Container{
+class Ship{
     friend ostream& operator<<();
     protected:
         string name
-        unsigned int id, value, weight, nextId = 1;
+        unsigned int weight, value, maxWeight, maxContainers;
+        static const unsigned int kMINCONTAINERS = 5;
+        static const unsigned int kMINWEIGHT = 500;
     public:
-        Container(unsigned int weight = 0, unsigned int value = 0)
-        void resetNextId();
-        const unsigned int getId();
+        Ship();
+        Ship(string name, unsigned int maxContainers, unsigned int maxWeight)
+        const string getName();
         const unsigned int getWeight();
         const unsigned int getValue();
-        void setWeight(weight: unsigned int);
-        void setValue(value: unsigned int);
+        const unsigned int MaxWeight();
+        const unsigned int getMaxContainers();
+        const unsigned int getNumContainers();
+        const int searchContainer(unsigned int id);
+        const bool admitsContainer(const Container &c);
+        const Container getContainer(unsigned int id);
+        bool addContainer(const Container &c);
+        bool removeContainer(unsigned int id);
+        vector<Container> releaseContainers();
 }

@@ -1,3 +1,4 @@
+// Base.h
 #include <string.h>
 
 class Base{
@@ -8,7 +9,7 @@ class Base{
         Base(string name)        
         const unsigned int getName();
         const unsigned int getNumContainers();
-        const unsigned int getNumShips();
+        const unsigned int gBetNumShips();
         const Container getContainer();
         const Ship getShip();
         const int searchContainer();
