@@ -7,16 +7,16 @@ class Base{
             string name;
     public:
         Base(string name)        
-        const unsigned int getName();
+        const string getName();
         const unsigned int getNumContainers();
-        const unsigned int gBetNumShips();
-        const Container getContainer();
-        const Ship getShip();
-        const int searchContainer();
-        const int searchShip();
+        const unsigned int getNumShips();
+        const Container getContainer(unsigned int id);
+        const *Ship getShip(string name);
+        const int searchContainer(unsigned int id);
+        const int searchShip(string name);
         bool addContainer(unsigned int id = 0, unsigned int value = 0);
         bool removeContainer(unsigned int id = 0);
-        bool addShip(Ship s);
+        bool addShip(Ship* s);
         bool removeShip(string name = '');
         bool manualDistribution(unsigned int id = 0, string name = '');
         bool unassignContainer(unsigned int id = 0, string name = '');

@@ -1,20 +1,26 @@
 #include <string.h>
 #include <vector>
-
+#include "Container.h"
 class Ship{
     friend ostream& operator<<();
     protected:
-        string name
+        string name;
+        vector<Container*> containers;
         unsigned int weight, value, maxWeight, maxContainers;
         static const unsigned int kMINCONTAINERS = 5;
         static const unsigned int kMINWEIGHT = 500;
     public:
         Ship();
-        Ship(string name, unsigned int maxContainers, unsigned int maxWeight)
+        Ship(string name, unsigned int maxContainers, unsigned int maxWeight, vector<Container*> containers){
+            this->name = name;
+            this->maxContainers = maxContainers;    
+            this->maxWeight = maxWeight;
+            this->containers = containers;
+        }
         const string getName();
         const unsigned int getWeight();
         const unsigned int getValue();
-        const unsigned int MaxWeight();
+        const unsigned int getMaxWeight();
         const unsigned int getMaxContainers();
         const unsigned int getNumContainers();
         const int searchContainer(unsigned int id);

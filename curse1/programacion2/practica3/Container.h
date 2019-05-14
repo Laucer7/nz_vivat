@@ -6,11 +6,14 @@ class Container{
         static const unsigned int kMINWEIGHT = 100;
         static const unsigned int kMINVALUE = 100;
     public:
-        Container(unsigned int weight = 0, unsigned int value = 0)
-        void resetNextId();
+        Container(unsigned int weight = 0, unsigned int value = 0){  
+            this->weight = weight;
+            this->value = valie;            
+        }
+        static void resetNextId();
         const unsigned int getId();
         const unsigned int getWeight();
         const unsigned int getValue();
-        void setWeight(weight: unsigned int);
-        void setValue(value: unsigned int);
+        void setWeight(unsigned int weight);
+        void setValue(unsigned int value);
 }
