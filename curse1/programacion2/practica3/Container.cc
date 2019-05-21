@@ -3,20 +3,25 @@
 #include "Util.h"
 
 Container::Container(unsigned int weight = 0, unsigned int value = 0){
-    Container c;
-    getWeight();
-    getValue();
-    if(weight <= Container::kMINWEIGHT)
-        Util::error(ERR_CONTAINER_WEIGHT)
-    else if(value <= Container::kMINVALUE)
-             Util::error(ERR_CONTAINER_WEIGHT)
-         else {
-                c.id = getId();
-                id++;
-                c.weight = weight;
-                c.value = value;
-        }
+    try
+    {
+        Container c;
+        getWeight();
+        getValue();
+        if(weight <= Container::kMINWEIGHT)
+            throw ERR_CONTAINER_WEIGHT;
+        else if(value <= Container::kMINVALUE)
+                throw ERR_CONTAINER_WEIGHT;
+             else {
+                    getId();
+                    id++;
+                }
     return c;
+        
+    }
+    catch(Error e){
+        Util::error(e);
+    }
 }
 
 void Container::resetNextId(){
