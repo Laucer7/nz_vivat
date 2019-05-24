@@ -1,21 +1,28 @@
+// Container.cc
 #include <iostream>
 #include "Container.h"
 #include "Util.h"
+
+const string WEIGHTREQUEST = "Introduce weight: ";
+const string VALUEREQUEST = "Introduce value: ";
 
 Container::Container(unsigned int weight = 0, unsigned int value = 0){
     try
     {
         Container c;
-        getWeight();
-        getValue();
-        if(weight <= Container::kMINWEIGHT)
-            throw ERR_CONTAINER_WEIGHT;
-        else if(value <= Container::kMINVALUE)
-                throw ERR_CONTAINER_WEIGHT;
-             else {
-                    getId();
-                    id++;
-                }
+        if(weight = 0){
+			cout << WEIGHTREQUEST;
+			cin >> weight;
+		}
+        if(value = 0){
+			cout << VALUEREQUEST;
+			cin >> value;
+		}
+
+        setWeight();
+		setValue();
+        getId();
+        id++;
     return c;
         
     }
@@ -41,21 +48,23 @@ unsigned int Container::getValue() const {
 }
 
 void Container::setWeight(unsigned int weight){
-    unsigned int input;
-    
-    cin >> input;
-    if(weight <= Container::kMINWEIGHT)
-        Util::error(ERR_CONTAINER_WEIGHT)
-    else weight = input;
+    try{
+		if(weight <= kMINWEIGHT)
+			throw ERR_CONTAINER_WEIGHT;
+	}
+	catch(Error e){
+        Util::error(e);
+    }
 }
 
 void Container::setValue(unsigned int value){
-    unsigned int input;
-    
-    cin >> input;
-    if(value <= Container::kMINValue)
-        Util::error(ERR_CONTAINER_Value)
-    else value = input;
+    try{
+		if(value <= kMINVALUE)
+			throw ERR_CONTAINER_VALUE;
+	}
+	catch(Error e){
+        Util::error(e);
+    }
 }
 
 ostream& operator<<(ostream &os, const Container &c)){
